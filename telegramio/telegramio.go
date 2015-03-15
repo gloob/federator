@@ -1,6 +1,6 @@
 package telegramio
 
 import (
-  "github.com/gloob/go-telegram"
+  "github.com/gloob/go-telegram/tgl"
   "log"
 )
