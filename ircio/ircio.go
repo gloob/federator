@@ -1,4 +1,4 @@
-package irc
+package ircio
 
 import (
   "github.com/sorcix/irc"
@@ -21,7 +21,7 @@ func createConnection(host string) *IrcConn {
 }
 
 func (ic *IrcConn) dial() {
-  conn, err := irc.dial(ic.Host)
+  conn, err := irc.Dial(ic.Host)
   if err != nil {
     return
   }
