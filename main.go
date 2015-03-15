@@ -14,8 +14,7 @@ func main() {
 
   ircConn := irc.createConnection("irc.irc-hispano.org")
 
-  ircConn.Dial()
-  _ = plugin.NewDispatcher(ircConn, config, db)
+  ircConn.dial()
 
   for {
     time.Sleep(1 * time.Second)
