@@ -9,12 +9,11 @@ before_install:
   - go get golang.org/x/tools/cmd/cover
   - go get github.com/golang/lint/golint
   - go get github.com/mattn/goveralls
-  - go get -d github.com/gloob/go-telegram/tgl
-  - cd $HOME/gopath/src/github.com/gloob/go-telegram/tgl
+  - go get -d github.com/gloob/go-telegram
+  - cd $HOME/gopath/src/github.com/gloob/go-telegram
   - git submodule update --init --recursive
-  - cd lib/tgl && ./configure && make
-  - go get -u github.com/gloob/go-telegram/tgl
-  - cd $HOME
+  - (cd lib/tgl && ./configure && make)
+  - go get -u github.com/gloob/go-telegram
 
 install:
   - go get -d -v ./... && go build -v ./...

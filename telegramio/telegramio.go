@@ -1,19 +1,21 @@
 package telegramio
 
 import (
-  "github.com/gloob/go-telegram/tgl"
+	_ "github.com/gloob/go-telegram"
 )
 
 type Conn struct {
-  Host string
+	Host string
 }
 
 func createConnection(host string) *Conn {
-  c := new(Conn)
-  c.Host = host
+	c := new(Conn)
+	c.Host = host
 
-  tgl_state := new(C.struct_tgl_state)
-  tgl_state = tgl.login(tgl_state)
+	state := NewState()
+	defer state.Destroy()
 
-  return c
+	//err := state.Dial()
+
+	return c
 }
