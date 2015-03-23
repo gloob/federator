@@ -12,8 +12,10 @@ before_install:
   - go get -d github.com/gloob/go-telegram
   - cd $HOME/gopath/src/github.com/gloob/go-telegram
   - git submodule update --init --recursive
-  - (cd lib/tgl && ./configure && make)
+  - ( cd tgl/lib/tgl && ./configure --enable-libevent && make )
+  - sudo cp tgl/lib/tgl/libs/libtgl.so /usr/lib/
   - go get -u github.com/gloob/go-telegram
+  - cd $HOME
 
 install:
   - go get -d -v ./... && go build -v ./...

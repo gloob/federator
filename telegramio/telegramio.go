@@ -1,7 +1,7 @@
 package telegramio
 
 import (
-	_ "github.com/gloob/go-telegram"
+	"github.com/gloob/go-telegram/tgl"
 )
 
 type Conn struct {
@@ -12,7 +12,7 @@ func createConnection(host string) *Conn {
 	c := new(Conn)
 	c.Host = host
 
-	state := NewState()
+	state := tgl.NewState()
 	defer state.Destroy()
 
 	//err := state.Dial()

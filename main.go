@@ -6,16 +6,20 @@ import (
 	"time"
 
 	"github.com/gloob/federator/ircio"
-	_ "github.com/gloob/federator/telegramio"
+	"github.com/gloob/go-telegram/tgl"
 )
 
 func main() {
 	log.SetOutput(os.Stdout)
 	log.SetFlags(log.Ltime)
 
-	ircConn := ircio.createConnection("irc.irc-hispano.org")
+	host := "irc.irc-hispano.org"
+	ircConn := ircio.CreateConnection(host)
 
-	ircConn.dial()
+	ircConn.Dial()
+
+	tglState := tgl.NewState()
+	defer state.Destroy()
 
 	for {
 		time.Sleep(1 * time.Second)

@@ -12,7 +12,7 @@ type IrcConn struct {
 	Out  chan irc.Message
 }
 
-func createConnection(host string) *IrcConn {
+func CreateConnection(host string) *IrcConn {
 	ic := new(IrcConn)
 	ic.Host = host
 	ic.Inp = make(chan irc.Message, 100)
@@ -20,7 +20,7 @@ func createConnection(host string) *IrcConn {
 	return ic
 }
 
-func (ic *IrcConn) dial() {
+func (ic *IrcConn) Dial() {
 	conn, err := irc.Dial(ic.Host)
 	if err != nil {
 		return
