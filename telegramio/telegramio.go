@@ -8,9 +8,9 @@ type Conn struct {
 	Host string
 }
 
-func createConnection(host string) *Conn {
+func CreateConnection() *Conn {
 	c := new(Conn)
-	c.Host = host
+	//c.Host = host
 
 	state := tgl.NewState()
 	defer state.Destroy()
