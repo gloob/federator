@@ -17,7 +17,5 @@ func main() {
 
 	ircConn.Dial()
 
-	for {
-		time.Sleep(1 * time.Second)
-	}
+	ircConn.Loop()
 }
